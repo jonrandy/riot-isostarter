@@ -22,11 +22,11 @@ app.set('view engine', 'mustache');
 app.set('views', __dirname+"/");
 
 app.get("/public/*",(req,res)=>{
-	res.sendFile(__dirname+req.path);
+  res.sendFile(__dirname+req.path);
 })
 
 app.get("/css/*",(req,res)=>{
-	res.sendFile(__dirname+req.path);
+  res.sendFile(__dirname+req.path);
 })
 
 app.use(function(req, res, next) {
@@ -39,12 +39,12 @@ app.use(function(req, res, next) {
   } else if(req.url.startsWith("/product")){
     currRouteJs = "product";
   } else {
-    currRouteJs = "404";  //not implented in this example
+    currRouteJs = "";  //not implented in this example
   }
 
   appBody(req.url,function(appMarkup){
     res.render('index',{
-      currentRoute: "/public/"+currRouteJs+".bundle.js",
+      currentRoute: currRouteJs && "/public/"+currRouteJs+".bundle.js",
       appMarkup: appMarkup 
     });
   });

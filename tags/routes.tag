@@ -8,7 +8,7 @@ require('riot-tagrouter/tags/navigate.tag');
 			<route path='/' component={this.parent.loadHome}></route>
 			<route path='/browse/:category' component={this.parent.loadBrowse}></route>
 			<route path='/product/:category/:productName' component={this.parent.loadProduct}></route>
-			<!--<router path='/..' component={tag-404}/>-->
+			<route path='/..' component="notfound"></route>
 	</router>
 	<script>
 		var self = this;
@@ -36,8 +36,5 @@ require('riot-tagrouter/tags/navigate.tag');
 				},"product");
 			})
 		}
-		setTimeout(function() {
-			this.trigger('ready')
-		}.bind(this), 500)
 	</script>
 </app-router>
